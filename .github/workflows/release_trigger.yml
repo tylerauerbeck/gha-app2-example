@@ -1,0 +1,13 @@
+name: "Release Trigger"
+
+on:
+  repository_dispatch:
+    type: [release_trigger]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Release Name
+      run: |
+        echo ${{ github.event.client_payload.release_name }}
